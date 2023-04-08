@@ -1,5 +1,6 @@
 # Найдите сумму цифр трехзначного числа
 number = int(input('Введите трёхзначное число: '))
+
 def checkSize(number):
     count = 0
     while number > 0:
@@ -16,6 +17,7 @@ def checkSumm(number):
         print('Введите верное число')
         exit()
     return summ
+
 
 print(f'Сумма элементов в числе {number} = {checkSumm(number)}')
 
