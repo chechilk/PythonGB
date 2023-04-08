@@ -1,6 +1,5 @@
 # Найдите сумму цифр трехзначного числа
 number = int(input('Введите трёхзначное число: '))
-
 def checkSize(number):
     count = 0
     while number > 0:
