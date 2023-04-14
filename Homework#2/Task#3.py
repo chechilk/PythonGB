@@ -10,7 +10,7 @@ count_number = int(input('Введите количество чисел: '))
 numbers = 0
 for i in range(1, count_number):
     numbers = list_number[i - 1] + list_number[i - 1]
-    if numbers <= 10:
+    if numbers <= count_number:
         list_number.insert(i, numbers)
     else:
         print(list_number)
