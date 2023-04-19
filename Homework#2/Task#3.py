@@ -18,7 +18,3 @@ for i in range(1, count_number):
 print(list_number)
 
 
-
-
-
-
