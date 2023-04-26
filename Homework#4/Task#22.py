@@ -18,6 +18,10 @@ for i in range(len_second):
 
 set_first = set(list_first)
 set_second = set(list_second)
+set_intersection = set_first.intersection(set_second)
+list_intersection = list(set_intersection)
+list_intersection.sort()
+
 print("First set: ", set_first)
 print("Second set: ", set_second)
-print("Intersection first set and second set: ", set_first.intersection(set_second))
+print("Intersection first set and second set: ", list_intersection)
