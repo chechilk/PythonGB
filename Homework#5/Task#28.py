@@ -6,3 +6,4 @@ def search_summ(first_number: int, second_number: int) -> int:
 
 first_number, second_number = map(int, input('Введите 2 числа через пробел: ').split())
 print(f'Сумма чисел {first_number} + {second_number} = {search_summ(first_number, second_number)}')
+# проверка
