@@ -29,6 +29,6 @@ match number:
         open_full_file('book.txt')  # Показать все контакты
     case 4:
         list_file = [['Vova', 'kek', '82374', 'comm'], ['Polina', 'lol', '28472', 'kek']]
-        print(open_file_write('book_1.txt', list_file))  # Запись в файл
+        print(open_file_write('book.txt', list_file))  # Запись в файл
     case _:
         print('Выберите числа от 1 - 8!')
