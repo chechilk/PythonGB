@@ -13,7 +13,8 @@ def same_by(characteristic, objects) -> int:
     return sum(map(characteristic, objects))
 
 
-my_list = 'пара-ра-рам рам-пам-папам па-ра-па-даа'
+my_list = 'пара-ра-рам рам-пам-папам па-ра-па-да'.split()
+print(my_list)
 
 if same_by(lambda x: x in 'ёйуеаоэяию', my_list) % 2 == 0:
     print('Парам пам-пам')
