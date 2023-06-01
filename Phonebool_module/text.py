@@ -12,5 +12,37 @@ menu = '''\nГлавное меню:
 8. Выход\n'''
 
 input_option = 'Выберите пункт меню: '
+
 open_successful = 'Телефонная книга открыта!'
+save_successful = 'Контакт сохранён'
+
 pb_empty = 'Телефонная книга пуста или не загружена'
+
+input_new_contact = 'Введите данные нового контакта: '
+
+new_contact = {'last_name': 'Введите фамилию: ',
+               'first_name': 'Введите имя: ',
+               'phone': 'Введите номер телефона: ',
+               'comm': 'Введите комментарий: '}
+
+
+def change_seccessful(name: list) -> str:
+    return f'Контакт {name[0]} {name[1]} успешно изменён!'
+
+
+def new_contact_successful(name):
+    return f'Контакт {name[0]} {name[1]} успешно добавлен'
+
+
+input_search = 'Введите искомое значение: '
+
+
+def empty_search(word) -> str:
+    return f'Контакты, содержащие слово "{word}" не найдены'
+
+
+input_change = 'Какой контакт будем менять?: '
+input_index = 'Введите индекс контакта: '
+change_contact = 'Введите новые данные или оставьте пустым, что бы не менять: '
+error_open_file = 'Книга пуста или не открыта'
+input_index_delete = 'Введите индекс контакта, который хотите удалить'
