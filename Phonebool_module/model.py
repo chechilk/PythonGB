@@ -22,7 +22,10 @@ def save_pb():
     global phone_book
     data = []
     for contact in phone_book:
-        data.append(':'.join([value for value in contact.values()]))  # объединяем в список каждое значение словаря по :
+        data.append(':'.join([contact['id'],
+                              contact['last_name'],
+                              contact['first_name'],
+                              contact['comm']]))  # объединяем в список каждое значение словаря по :
     data = '\n'.join(data)
     with open(path, 'w', encoding='UTF-8') as file:
         file.write(data)
@@ -39,6 +42,12 @@ def add_contact(new: dict[str, str]) -> list[str | None]:  # добавляем 
     new['id'] = str(new_id)
     phone_book.append(new)
     return [new.get('last_name'), new.get('first_name')]
+
+    # def add(self, new: dict[str, str]) -> str:
+    #     new_id = int(self.phone_book[-1].get('id')) + 1
+    #     new['id'] = str(new_id)
+    #     self.phone_book.append(new)
+    #     return new.get('name')
 
 
 def search_contact(word: str) -> list[dict[str, str]]:
@@ -68,12 +77,17 @@ def search_max_len_pb(book: list[dict[str, str]]) -> int:
     return max(list_summ)
 
 
-def change_contact(new: dict, index: int) -> list:
+def change_contact(new: dict, index: int) -> str:
     global phone_book
     for contact in phone_book:
         if index == contact.get('id'):
-            contact['first_name'] = new.get('first_name', contact.get('first_name')) # если ничего не ввели, добавляем тоже самое
+            contact['first_name'] = new.get('first_name', contact.get('first_name'))
             contact['last_name'] = new.get('last_name', contact.get('last_name'))
             contact['phone'] = new.get('phone', contact.get('phone'))
             contact['comm'] = new.get('comm', contact.get('comm'))
-            return [new.get('last_name'), new.get('first_name')]
+            return contact.get('last_name')
+
+
+def remove_contact(index: int) -> str:
+    deleted_element = phone_book.pop(index - 1)
+    return deleted_element.get('last_name')

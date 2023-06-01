@@ -38,10 +38,19 @@ def input_contact(message) -> [dict[str, str]]:
             new[key] = value  # Вводим данные с клавиатуры в каждый key
     return new
 
+
 def input_index(book: list, message: str) -> int:
     while True:
-        option = input(message)
-        if option.isdigit() and
+        index = input(message)
+        if index.isdigit() and 0 < int(index) < len(book) + 1:
+            return int(index)
+
+
+def confirm(message: str):
+    answer = input(message + ' (y/n): ')
+    if answer.lower() == 'y':
+        return True
+    return False
 
 
 def input_search(message) -> str:

@@ -1,6 +1,5 @@
 # модуль для импорта текста
 
-
 menu = '''\nГлавное меню:
 1. Открыть файл
 2. Сохранить файл
@@ -12,12 +11,9 @@ menu = '''\nГлавное меню:
 8. Выход\n'''
 
 input_option = 'Выберите пункт меню: '
-
 open_successful = 'Телефонная книга открыта!'
-save_successful = 'Контакт сохранён'
-
-pb_empty = 'Телефонная книга пуста или не загружена'
-
+save_successful = 'Изменения сохранены'
+pb_empty = 'Телефонная книга пуста или не открыта'
 input_new_contact = 'Введите данные нового контакта: '
 
 new_contact = {'last_name': 'Введите фамилию: ',
@@ -25,24 +21,34 @@ new_contact = {'last_name': 'Введите фамилию: ',
                'phone': 'Введите номер телефона: ',
                'comm': 'Введите комментарий: '}
 
+error_delete_contact = 'Вы передумали удалять'
+input_change = 'Какой контакт будем менять?: '
+input_index = 'Введите индекс контакта: '
+change_contact = 'Введите новые данные или оставьте пустым, что бы не менять: '
+error_open_file = 'Книга пуста или не открыта!'
+input_index_delete = 'Введите индекс контакта, который хотите удалить: '
+input_search = 'Введите искомое значение: '
 
-def change_seccessful(name: list) -> str:
-    return f'Контакт {name[0]} {name[1]} успешно изменён!'
+
+def change_successful(name: str) -> str:
+    return f'Контакт {name} успешно изменён!'
 
 
-def new_contact_successful(name):
+def new_contact_successful(name: list) -> str:
     return f'Контакт {name[0]} {name[1]} успешно добавлен'
 
 
-input_search = 'Введите искомое значение: '
+def delete_contact_successful(name: str) -> str:
+    return f'Контакт {name} успешно удален!'
+
+
+def confirm_delete(name: str) -> str:
+    return f'Вы точно хотите удалить {name}?'
+
+
+def confirm_exit() -> str:
+    return f'Вы всё сохранили и хотите выйти?'
 
 
 def empty_search(word) -> str:
     return f'Контакты, содержащие слово "{word}" не найдены'
-
-
-input_change = 'Какой контакт будем менять?: '
-input_index = 'Введите индекс контакта: '
-change_contact = 'Введите новые данные или оставьте пустым, что бы не менять: '
-error_open_file = 'Книга пуста или не открыта'
-input_index_delete = 'Введите индекс контакта, который хотите удалить'
