@@ -16,8 +16,7 @@ save_successful = 'Изменения сохранены'
 pb_empty = 'Телефонная книга пуста или не открыта'
 input_new_contact = 'Введите данные нового контакта: '
 
-new_contact = {'last_name': 'Введите фамилию: ',
-               'first_name': 'Введите имя: ',
+new_contact = {'name': 'Введите Имя/Фамилию: ',
                'phone': 'Введите номер телефона: ',
                'comm': 'Введите комментарий: '}
 
@@ -34,8 +33,8 @@ def change_successful(name: str) -> str:
     return f'Контакт {name} успешно изменён!'
 
 
-def new_contact_successful(name: list) -> str:
-    return f'Контакт {name[0]} {name[1]} успешно добавлен'
+def new_contact_successful(name: str) -> str:
+    return f'Контакт {name} успешно добавлен'
 
 
 def delete_contact_successful(name: str) -> str:
@@ -52,3 +51,6 @@ def confirm_exit() -> str:
 
 def empty_search(word) -> str:
     return f'Контакты, содержащие слово "{word}" не найдены'
+
+
+

@@ -17,14 +17,14 @@ def print_message(message: str):  # печать сообщений
 
 
 def print_contacts(book: list[dict[str, str]], error: str):
+    max_size = search_max_len_pb(book)
     if book:  # если данные заполнены
-        print('\n' + '=' * ((model.search_max_len_pb(model.get_pb())) + 20 * 4))
+        print('\n' + '=' * (max_size + 22 * 2))
         for contact in book:
-            print(f'{contact.get("id")}.{contact.get("last_name"):<20} | '  # по середине :^
-                  f'{contact.get("first_name"):<20} | '
+            print(f'{contact.get("id")}.{contact.get("name"):<20} | '  # по середине :^
                   f'{contact.get("phone"):<20} | '
-                  f'{contact.get("comm"):<20}| ')
-        print('=' * ((model.search_max_len_pb(model.get_pb())) + 20 * 4) + '\n')
+                  f'{contact.get("comm"):<20}')
+        print('=' * (max_size + 22 * 2) + '\n')
     else:
         print_message(error)
 
@@ -55,3 +55,19 @@ def confirm(message: str):
 
 def input_search(message) -> str:
     return input(message)
+
+
+def search_max_len_pb(book: list[dict[str, str]]) -> int:
+    len_dict = []
+    # добавление элементов словарей в лист
+    for contacts in book:
+        for key, value in contacts.items():
+            len_dict.append([key, value])
+    list_summ = []
+    # поиск максимальной длины
+    for contact in len_dict:
+        summ = 0
+        for i in contact:
+            summ = summ + len(i)
+        list_summ.append(summ)
+    return max(list_summ)
